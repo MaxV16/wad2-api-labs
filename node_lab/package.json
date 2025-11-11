@@ -1,0 +1,42 @@
+{
+  "name": "node_lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "node lab 1",
+  "homepage": "https://github.com/MaxV16/node_lab#readme",
+  "bugs": {
+    "url": "https://github.com/MaxV16/node_lab/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxV16/node_lab.git"
+  },
+  "license": "ISC",
+  "author": "MaxV16",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node index.js",
+    "dev": "nodemon --exec npm start"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.1.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "nodemon": "^3.1.10",
+    "vite": "^7.2.2"
+  }
+}
