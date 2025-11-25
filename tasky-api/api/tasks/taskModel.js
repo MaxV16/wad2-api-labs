@@ -9,13 +9,19 @@ const TaskSchema = new Schema({
   done: Boolean,
   priority: { type: String, enum: ["Low", "Medium", "High"], required: true },
   created_at: Date,
-  updated_at: Date
+  updated_at: Date,
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+},
+},{
+  timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 });
 
 const dateValidator = (date) => {
   return date > new Date();
 }
-TaskSchema.path("deadline").validate(dateValidator);
+TaskSchema.path("deadline").validate(dateValidator); // deadline must be in the future
 
 
 export default mongoose.model('Task', TaskSchema);
