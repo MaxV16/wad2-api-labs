@@ -29,13 +29,22 @@ router.post('/', asyncHandler(async (req, res) => {
     }
 }));
 
-// ... Code as before
-
 
 async function registerUser(req, res) {
     // Add input validation logic here
+  try {
     await User.create(req.body);
     res.status(201).json({ success: true, msg: 'User successfully created.' });
+  } catch (error) {
+    if (error.name === 'ValidationError') {
+      // Extract the error message from the validator
+      const errorMessage = error.errors.password.message;
+      return res.status(400).json({ success: false, msg: errorMessage });
+    }
+    // Handle other errors
+    console.error(error);
+    res.status(500).json({ success: false, msg: 'Internal server error.' });
+  }
 }
 
 async function authenticateUser(req, res) {
